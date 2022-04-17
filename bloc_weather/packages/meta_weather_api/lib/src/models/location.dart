@@ -40,11 +40,11 @@ class Location {
 class LatLng {
   const LatLng({
     required this.latitude,
-    required this.longitute,
+    required this.longitude,
   });
 
   final double latitude;
-  final double longitute;
+  final double longitude;
 }
 
 class LatLngConverter implements JsonConverter<LatLng, String> {
@@ -52,7 +52,7 @@ class LatLngConverter implements JsonConverter<LatLng, String> {
 
   @override
   String toJson(LatLng latLng) {
-    return '${latLng.latitude}, ${latLng.longitute}';
+    return '${latLng.latitude}, ${latLng.longitude}';
   }
 
   @override
@@ -60,7 +60,7 @@ class LatLngConverter implements JsonConverter<LatLng, String> {
     final parts = jsonString.split(',');
     return LatLng(
       latitude: double.tryParse(parts[0]) ?? 0,
-      longitute: double.tryParse(parts[1]) ?? 0,
+      longitude: double.tryParse(parts[1]) ?? 0,
     );
   }
 }
